@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+  </head>
+  <body>
+    <h1>Bienvenido a mi Blog</h1>
+
+    <div>
+      <a href="/login"><button>Log In</button></a>
+    </div>
+
+    <hr />
+
+    <% if (posts.length === 0) { %>
+    <p>No hay publicaciones todavía.</p>
+    <% } else { %> <% posts.forEach(post => { %>
+    <div style="margin-bottom: 20px">
+      <h2><a href="/posts/<%= post.id %>"><%= post.title %></a></h2>
+      <p><%= post.summary %></p>
+      <small><%= new Date(post.created_at).toLocaleString() %></small>
+    </div>
+    <% }) %> <% } %>
+  </body>
+</html>
