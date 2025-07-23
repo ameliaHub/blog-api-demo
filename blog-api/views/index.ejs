@@ -6,7 +6,9 @@
   <body>
     <h1>Bienvenido a mi Blog</h1>
 
-    <% if (user) { %>
+    <% if (user && user.role === 'admin') { %>
+    <a href="/admin">Centro de operaciones</a>
+    <% } %> <% if (user) { %>
     <p>Hola, <%= user.username %> | <a href="/auth/logout">Cerrar sesión</a></p>
     <% } else { %>
     <div>

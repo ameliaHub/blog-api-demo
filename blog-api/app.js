@@ -33,6 +33,8 @@ const indexRoute = require("./routes/index");
 app.use("/", indexRoute);
 const authRouter = require("./routes/authRoute");
 app.use("/auth", authRouter);
+const adminRouter = require("./routes/adminRoute");
+app.use("/admin", adminRouter);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
