@@ -31,6 +31,10 @@ app.use((req, res, next) => {
 
 const indexRoute = require("./routes/index");
 app.use("/", indexRoute);
+const postRouter = require("./routes/postsRoute");
+app.use("/posts", postRouter);
+const commentsRouter = require("./routes/commentRoute");
+app.use(commentsRouter);
 const authRouter = require("./routes/authRoute");
 app.use("/auth", authRouter);
 const adminRouter = require("./routes/adminRoute");

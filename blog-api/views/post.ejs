@@ -1,0 +1,25 @@
+<h1><%= post.title %></h1>
+<p><%= post.content %></p>
+
+<h2>Comentarios</h2>
+
+<ul>
+  <% comments.forEach(comment => { %>
+  <li>
+    <strong><%= comment.author %></strong> (<%= new
+    Date(comment.created_at).toLocaleString() %>):<br />
+    <%= comment.content %>
+  </li>
+  <% }) %>
+</ul>
+
+<% if (user) { %>
+<form action="/posts/<%= post.id %>/comments" method="POST">
+  <textarea name="content" rows="3" required></textarea><br />
+  <button type="submit">Añadir comentario</button>
+</form>
+<% } else { %>
+<p><a href="/login">Inicia sesión</a> para comentar.</p>
+<% } %>
+
+<a href="/">← Back to posts</a>
