@@ -6,6 +6,15 @@ require("dotenv").config();
 
 const app = express();
 
+const cors = require("cors");
+
+app.use(
+  cors({
+    origin: "http://localhost:5173", // origen del frontend de Vite
+    credentials: true,
+  })
+);
+
 app.set("view engine", "ejs");
 
 app.use(express.json());

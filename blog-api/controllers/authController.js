@@ -32,11 +32,11 @@ exports.registerUser = async (req, res) => {
       [username, password_hash, "user"]
     );
 
-    // 4. Redirigir a login o mostrar mensaje
-    res.redirect("/auth/login");
+    // Respuesta JSON para frontend React
+    res.status(201).json({ message: "Usuario creado correctamente" });
   } catch (error) {
     console.error("Error registrando usuario:", error);
-    res.status(500).send("Error del servidor");
+    res.status(500).json({ message: "Error del servidor" });
   }
 };
 
