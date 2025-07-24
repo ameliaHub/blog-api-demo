@@ -37,6 +37,7 @@ export default function LoginForm() {
 
       if (res.ok) {
         alert("Login exitoso");
+        console.log("Usuario logueado:", data.user);
         setUser(data.user);
         navigate("/");
       } else {

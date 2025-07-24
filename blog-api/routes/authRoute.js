@@ -18,7 +18,7 @@ router.post("/login", (req, res, next) => {
       if (err) return next(err);
       return res.json({
         message: "Login exitoso",
-        user: { id: user.id, username: user.username },
+        user: { id: user.id, username: user.username, role: user.role },
       });
     });
   })(req, res, next);

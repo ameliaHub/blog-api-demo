@@ -15,6 +15,9 @@ export default function Navbar() {
         {user ? (
           <>
             <span className={styles.userGreeting}>Hola, {user.username}</span>
+            {user.role == "admin" ? (
+              <Link to="/admin">Centro de control</Link>
+            ) : null}
             <button onClick={logout} className={styles.logoutButton}>
               Logout
             </button>

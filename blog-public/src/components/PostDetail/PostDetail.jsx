@@ -39,8 +39,8 @@ export default function PostDetail() {
         const fakeComment = {
           content: newComment,
 
-          author: user.username, // o como se llame tu user
-          created_at: new Date().toISOString(), // o null
+          author: user.username,
+          created_at: new Date().toISOString(),
         };
 
         setComments((prev) => [...prev, fakeComment]);
