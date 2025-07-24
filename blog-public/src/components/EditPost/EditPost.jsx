@@ -10,6 +10,7 @@ export default function EditPost() {
 
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [image, setImage] = useState(null);
 
   // Cargar los datos del post al montar
   useEffect(() => {
@@ -18,6 +19,7 @@ export default function EditPost() {
       .then((data) => {
         setTitle(data.post.title);
         setContent(data.post.content);
+        setImage(data.post.image);
       })
       .catch((err) => console.error("Error al cargar el post:", err));
   }, [id]);
@@ -31,7 +33,7 @@ export default function EditPost() {
         "Content-Type": "application/json",
       },
       credentials: "include",
-      body: JSON.stringify({ title, content }),
+      body: JSON.stringify({ title, content, image }),
     })
       .then((res) => {
         if (res.ok) {
@@ -48,6 +50,16 @@ export default function EditPost() {
     <div className={styles.container}>
       <h2 className={styles.title}>Editar Post</h2>
       <form onSubmit={handleSubmit} className={styles.form}>
+        <div className={styles.inputGroup}>
+          <label className={styles.inputLabel}>Imagen:</label>
+          <input
+            type="text"
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
+            required
+            className={styles.inputField}
+          />
+        </div>
         <div className={styles.inputGroup}>
           <label className={styles.inputLabel}>Título:</label>
           <input
