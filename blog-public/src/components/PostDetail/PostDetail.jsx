@@ -53,6 +53,7 @@ export default function PostDetail() {
   return (
     <article className={styles.container}>
       <header>
+        <img src={post.image} alt={post.title} className={styles.postImage} />
         <h1 className={styles.title}>{post.title}</h1>
         <p className={styles.meta}>
           <span className={styles.author}>

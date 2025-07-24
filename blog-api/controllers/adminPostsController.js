@@ -5,12 +5,12 @@ exports.renderNewPostForm = (req, res) => {
 };
 
 exports.createPost = async (req, res) => {
-  const { title, content } = req.body;
+  const { title, content, image } = req.body;
   const authorId = req.user.id;
   try {
     await pool.query(
-      "INSERT INTO posts (title, content, author_id, created_at) VALUES ($1, $2, $3, NOW())",
-      [title, content, authorId]
+      "INSERT INTO posts (title, content, author_id, image, created_at) VALUES ($1, $2, $3, $4, NOW())",
+      [title, content, authorId, image]
     );
     res.redirect("/admin");
   } catch (err) {
@@ -51,10 +51,10 @@ exports.renderEditPostForm = async (req, res) => {
 exports.updatePost = async (req, res) => {
   try {
     const postId = req.params.id;
-    const { title, content } = req.body;
+    const { title, content, image } = req.body;
     await pool.query(
-      "UPDATE posts SET title = $1, content = $2 WHERE id = $3",
-      [title, content, postId]
+      "UPDATE posts SET title = $1, content = $2, image = $3 WHERE id = $4",
+      [title, content, image, postId]
     );
     res.redirect("/admin");
   } catch (err) {

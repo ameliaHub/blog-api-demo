@@ -6,6 +6,7 @@ import styles from "./CreatePost.module.css";
 export default function CreatePost() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [image, setImage] = useState(null);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -17,7 +18,7 @@ export default function CreatePost() {
           "Content-Type": "application/json",
         },
         credentials: "include",
-        body: JSON.stringify({ title, content }),
+        body: JSON.stringify({ title, content, image }),
       });
 
       if (!res.ok) {
@@ -37,6 +38,19 @@ export default function CreatePost() {
     <form onSubmit={handleSubmit} className={styles.formContainer}>
       <h2 className={styles.formTitle}>Crear nuevo post</h2>
 
+      <div className={styles.inputGroup}>
+        <label className={styles.inputLabel} htmlFor="image">
+          Imagen:
+        </label>
+        <input
+          id="image"
+          type="text"
+          value={image}
+          onChange={(e) => setImage(e.target.value)}
+          className={styles.inputField}
+          required
+        />
+      </div>
       <div className={styles.inputGroup}>
         <label className={styles.inputLabel} htmlFor="title">
           Título:

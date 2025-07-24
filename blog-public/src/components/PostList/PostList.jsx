@@ -21,6 +21,11 @@ export default function PostList() {
         {posts.map((post) => (
           <li key={post.id} className={styles.postItem}>
             <Link to={`/posts/${post.id}`} className={styles.link}>
+              <img
+                src={post.image}
+                alt={post.title}
+                className={styles.postImage}
+              />
               <h3 className={styles.postTitle}>{post.title}</h3>
               <p className={styles.postAuthor}> {post.summary}</p>
             </Link>

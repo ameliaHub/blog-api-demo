@@ -2,7 +2,7 @@ const pool = require("./pool");
 
 async function getAllPostPreviews() {
   const result = await pool.query(`
-    SELECT id, title, content, created_at
+    SELECT id, title, content, image, created_at
     FROM posts
     ORDER BY created_at DESC
   `);
