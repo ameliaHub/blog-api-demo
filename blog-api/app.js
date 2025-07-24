@@ -39,7 +39,7 @@ app.use((req, res, next) => {
 });
 
 const indexRoute = require("./routes/index");
-app.use("/", indexRoute);
+app.use("/preview", indexRoute);
 const postRouter = require("./routes/postsRoute");
 app.use("/posts", postRouter);
 const commentsRouter = require("./routes/commentRoute");

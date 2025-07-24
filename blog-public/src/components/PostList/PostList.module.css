@@ -1,0 +1,60 @@
+* {
+  box-sizing: border-box;
+}
+
+.container {
+  padding: 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.heading {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #222;
+  text-align: center;
+}
+
+.postItem {
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+  background-color: #fafafa;
+  transition: box-shadow 0.2s ease;
+}
+
+.postItem:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.postTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: #333;
+}
+
+.postAuthor {
+  font-size: 0.9rem;
+  color: #777;
+  margin-bottom: 0.5rem;
+}
+
+.link {
+  font-size: 0.95rem;
+  color: #0077cc;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}

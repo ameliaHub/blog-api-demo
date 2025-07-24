@@ -14,8 +14,8 @@ exports.getPostById = async (req, res) => {
     }
 
     const comments = await db.getCommentsByPostId(postId);
-
-    res.render("post", { post, comments, user: req.user });
+    res.json({ post, comments });
+    //res.render("post", { post, comments, user: req.user });
   } catch (err) {
     console.error(err);
     res.status(500).send("Server error");

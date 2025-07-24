@@ -1,12 +1,16 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./LoginForm.module.css";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 export default function LoginForm() {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
   });
+
+  const { setUser } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -33,6 +37,7 @@ export default function LoginForm() {
 
       if (res.ok) {
         alert("Login exitoso");
+        setUser(data.user);
         navigate("/");
       } else {
         alert("Error: " + data.message);

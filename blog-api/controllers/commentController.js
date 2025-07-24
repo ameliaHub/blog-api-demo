@@ -17,7 +17,7 @@ exports.addComment = async (req, res) => {
 
   try {
     await db.addComment(postId, authorId, content);
-    res.redirect(`/posts/${postId}`);
+    res.status(201).json({ message: "Comment added successfully" });
   } catch (error) {
     res.status(500).send("Error al añadir comentario");
   }
