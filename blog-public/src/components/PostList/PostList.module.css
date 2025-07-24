@@ -1,60 +1,61 @@
-* {
-  box-sizing: border-box;
-}
-
 .container {
-  padding: 1rem;
-  max-width: 800px;
+  padding: 2rem 1rem;
+  max-width: 768px;
   margin: 0 auto;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial;
 }
 
 .heading {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  color: #222;
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: #111827;
   text-align: center;
 }
 
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 .postItem {
-  padding: 1rem;
-  border: 1px solid #ddd;
+  text-align: center;
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb;
   border-radius: 0.75rem;
-  margin-bottom: 1rem;
-  background-color: #fafafa;
-  transition: box-shadow 0.2s ease;
+  background-color: #ffffff;
+  margin-bottom: 1.5rem;
+  transition: box-shadow 0.2s ease-in-out;
 }
 
 .postItem:hover {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .postTitle {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 600;
-  margin-bottom: 0.25rem;
-  color: #333;
+  color: #1f2937;
+  margin-bottom: 0.5rem;
 }
 
 .postAuthor {
-  font-size: 0.9rem;
-  color: #777;
-  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  color: #6b7280;
+  margin-bottom: 1rem;
 }
 
 .link {
   font-size: 0.95rem;
-  color: #0077cc;
+  color: #374151;
   text-decoration: none;
-  font-weight: 500;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease-in-out, opacity 0.2s ease-in-out;
 }
 
 .link:hover {
-  text-decoration: underline;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+  border-color: #d1d5db;
+  opacity: 0.7;
 }

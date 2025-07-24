@@ -6,11 +6,11 @@ exports.renderNewPostForm = (req, res) => {
 
 exports.createPost = async (req, res) => {
   const { title, content } = req.body;
-
+  const authorId = req.user.id;
   try {
     await pool.query(
-      "INSERT INTO posts (title, content, created_at) VALUES ($1, $2, NOW())",
-      [title, content]
+      "INSERT INTO posts (title, content, author_id, created_at) VALUES ($1, $2, $3, NOW())",
+      [title, content, authorId]
     );
     res.redirect("/admin");
   } catch (err) {

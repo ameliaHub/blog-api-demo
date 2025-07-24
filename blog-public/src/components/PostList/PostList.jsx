@@ -16,15 +16,13 @@ export default function PostList() {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.heading}>Últimos posts</h2>
       {posts.length === 0 && <p>No hay posts aún.</p>}
       <ul>
         {posts.map((post) => (
           <li key={post.id} className={styles.postItem}>
-            <h3 className={styles.postTitle}>{post.title}</h3>
-            <p className={styles.postAuthor}> {post.summary}</p>
             <Link to={`/posts/${post.id}`} className={styles.link}>
-              Ver más
+              <h3 className={styles.postTitle}>{post.title}</h3>
+              <p className={styles.postAuthor}> {post.summary}</p>
             </Link>
           </li>
         ))}

@@ -8,15 +8,20 @@ export default function Signup() {
     username: "",
     password: "",
   });
+  const [errorMsg, setErrorMsg] = useState("");
+  const navigate = useNavigate();
 
   function handleChange(e) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    if (errorMsg) setErrorMsg("");
   }
-
-  const navigate = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
+    if (!formData.username || !formData.password) {
+      setErrorMsg("Por favor rellena todos los campos");
+      return;
+    }
     try {
       const res = await fetch("http://localhost:3000/auth/register", {
         method: "POST",
@@ -28,47 +33,87 @@ export default function Signup() {
 
       if (res.ok) {
         alert("Usuario creado con éxito");
-        navigate("/login"); // Redirigir a login después del registro
-        // aquí puedes redirigir o limpiar formulario
+        navigate("/login");
       } else {
-        alert("Error: " + data.message);
+        setErrorMsg(data.message || "Error en el registro");
       }
     } catch (error) {
       console.error(error);
-      alert("Error de conexión");
+      setErrorMsg("Error de conexión");
     }
   }
 
   return (
-    <form onSubmit={handleSubmit} className={styles.formContainer}>
-      <h2 className={styles.formTitle}>Create Account</h2>
-
-      <div className={styles.inputGroup}>
-        <label className={styles.inputLabel}>Username</label>
-        <input
-          name="username"
-          placeholder="Usuario"
-          value={formData.username}
-          onChange={handleChange}
-          className={styles.inputField}
-        />
+    <>
+      <div className={styles.welcomeMessage}>
+        <h2>Bienvenido a BLOG!</h2>
+        <p>
+          Al continuar, estás creando una cuenta en BLOG y aceptas nuestro{" "}
+          <a
+            href=""
+            onClick={(e) => e.preventDefault()}
+            rel="noopener noreferrer"
+          >
+            Acuerdo de Usuario
+          </a>{" "}
+          y la{" "}
+          <a
+            href=""
+            onClick={(e) => e.preventDefault()}
+            rel="noopener noreferrer"
+          >
+            Política de Privacidad
+          </a>
+          .
+        </p>
       </div>
 
-      <div className={styles.inputGroup}>
-        <label className={styles.inputLabel}>Password</label>
-        <input
-          type="password"
-          name="password"
-          placeholder="Contraseña"
-          value={formData.password}
-          onChange={handleChange}
-          className={styles.inputField}
-        />
-      </div>
+      <form onSubmit={handleSubmit} className={styles.formContainer} noValidate>
+        <h2 className={styles.formTitle}>Crear cuenta</h2>
 
-      <button type="submit" className={styles.submitButton}>
-        Sign Up
-      </button>
-    </form>
+        <div className={styles.inputGroup}>
+          <label htmlFor="username" className={styles.inputLabel}>
+            Usuario
+          </label>
+          <input
+            id="username"
+            name="username"
+            placeholder="Usuario"
+            value={formData.username}
+            onChange={handleChange}
+            className={styles.inputField}
+            autoComplete="username"
+            required
+          />
+        </div>
+
+        <div className={styles.inputGroup}>
+          <label htmlFor="password" className={styles.inputLabel}>
+            Contraseña
+          </label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Contraseña"
+            value={formData.password}
+            onChange={handleChange}
+            className={styles.inputField}
+            autoComplete="new-password"
+            required
+          />
+        </div>
+
+        {errorMsg && <p className={styles.errorMessage}>{errorMsg}</p>}
+
+        <button
+          type="submit"
+          className={styles.submitButton}
+          disabled={!formData.username || !formData.password}
+        >
+          Registrarse
+        </button>
+      </form>
+    </>
   );
 }

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import styles from "./ManagePost.module.css";
+
 const ManagePost = () => {
   const [posts, setPosts] = useState([]);
   const navigate = useNavigate();
@@ -44,25 +46,30 @@ const ManagePost = () => {
   };
 
   return (
-    <div>
-      <h2>Gestionar Posts</h2>
+    <div className={styles.container}>
+      <h2 className={styles.title}>Gestionar Posts</h2>
       {posts.length === 0 ? (
-        <p>No hay posts.</p>
+        <p className={styles.noPosts}>No hay posts.</p>
       ) : (
-        <ul>
+        <ul className={styles.postList}>
           {posts.map((post) => (
-            <li key={post.id} style={{ marginBottom: "1rem" }}>
-              <h3>{post.title}</h3>
-              <p>{post.summary}</p>
-              <button onClick={() => navigate(`/admin/edit/${post.id}`)}>
-                Editar
-              </button>
-              <button
-                onClick={() => handleDelete(post.id)}
-                style={{ marginLeft: "0.5rem" }}
-              >
-                Eliminar
-              </button>
+            <li key={post.id} className={styles.postItem}>
+              <h3 className={styles.postTitle}>{post.title}</h3>
+              <p className={styles.postSummary}>{post.summary}</p>
+              <div className={styles.buttons}>
+                <button
+                  className={styles.editButton}
+                  onClick={() => navigate(`/admin/edit/${post.id}`)}
+                >
+                  Editar
+                </button>
+                <button
+                  className={styles.deleteButton}
+                  onClick={() => handleDelete(post.id)}
+                >
+                  Eliminar
+                </button>
+              </div>
             </li>
           ))}
         </ul>

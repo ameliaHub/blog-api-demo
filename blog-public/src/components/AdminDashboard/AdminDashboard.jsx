@@ -1,12 +1,16 @@
 import { Link } from "react-router-dom";
+import styles from "./AdminDashboard.module.css";
 
 export default function AdminDashboard() {
   return (
-    <div>
-      <h2>Panel de Administración</h2>
-      <Link to="/admin/create">Crear nuevo post</Link>
-      <br />
-      <Link to="/admin/manage">Gestionar posts</Link>
+    <div className={styles.container}>
+      <h2 className={styles.title}>Panel de Administración</h2>
+      <Link to="/admin/create" className={styles.linkButton}>
+        Crear nuevo post
+      </Link>
+      <Link to="/admin/manage" className={styles.linkButton}>
+        Gestionar posts
+      </Link>
     </div>
   );
 }

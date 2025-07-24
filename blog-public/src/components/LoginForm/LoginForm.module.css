@@ -1,17 +1,53 @@
+/* Igual que en RegisterForm.module.css */
+
+.welcomeMessage {
+  text-align: center;
+  max-width: 400px;
+  margin: 0 auto 2rem auto;
+  color: #444;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.welcomeMessage h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.welcomeMessage p {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+.welcomeMessage a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.welcomeMessage a:hover,
+.welcomeMessage a:focus {
+  text-decoration: underline;
+}
+
 .formContainer {
   max-width: 400px;
   margin: 2rem auto;
-  padding: 2rem;
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 0;
+  background-color: transparent; /* sin fondo */
+  border-radius: 0; /* sin bordes redondeados */
+  box-shadow: none; /* sin sombra */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .formTitle {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
   text-align: center;
+  color: #222;
 }
 
 .inputGroup {
@@ -21,20 +57,24 @@
 }
 
 .inputLabel {
-  font-weight: 500;
-  margin-bottom: 0.5rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: #333;
 }
 
 .inputField {
-  padding: 0.5rem 0.75rem;
+  padding: 0.6rem 0.75rem;
   border: 1px solid #ccc;
-  border-radius: 8px;
+  border-radius: 0; /* sin bordes redondeados */
   font-size: 1rem;
+  transition: border-color 0.3s ease;
+  outline-offset: 0;
 }
 
 .inputField:focus {
   border-color: #007bff;
   outline: none;
+  box-shadow: none; /* sin sombra */
 }
 
 .submitButton {
@@ -42,13 +82,27 @@
   color: white;
   padding: 0.75rem;
   border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: bold;
+  border-radius: 0; /* sin bordes redondeados */
+  font-size: 1.1rem;
+  font-weight: 700;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  width: 100%;
+  margin-top: 0.5rem;
 }
 
-.submitButton:hover {
+.submitButton:hover:not(:disabled) {
   background-color: #0056b3;
+}
+
+.submitButton:disabled {
+  background-color: #a3c1ff;
+  cursor: not-allowed;
+}
+
+.errorMessage {
+  color: #d93025;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
 }

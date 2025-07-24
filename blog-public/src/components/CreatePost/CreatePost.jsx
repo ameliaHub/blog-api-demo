@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+import styles from "./CreatePost.module.css";
+
 export default function CreatePost() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -32,28 +34,40 @@ export default function CreatePost() {
   };
 
   return (
-    <div>
-      <h2>Crear nuevo post</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Título:</label>
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Contenido:</label>
-          <textarea
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">Crear</button>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit} className={styles.formContainer}>
+      <h2 className={styles.formTitle}>Crear nuevo post</h2>
+
+      <div className={styles.inputGroup}>
+        <label className={styles.inputLabel} htmlFor="title">
+          Título:
+        </label>
+        <input
+          id="title"
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          className={styles.inputField}
+          required
+        />
+      </div>
+
+      <div className={styles.inputGroup}>
+        <label className={styles.inputLabel} htmlFor="content">
+          Contenido:
+        </label>
+        <textarea
+          id="content"
+          value={content}
+          onChange={(e) => setContent(e.target.value)}
+          className={styles.textareaField}
+          rows={6}
+          required
+        />
+      </div>
+
+      <button type="submit" className={styles.submitButton}>
+        Crear
+      </button>
+    </form>
   );
 }

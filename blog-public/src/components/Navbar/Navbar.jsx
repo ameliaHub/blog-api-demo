@@ -8,27 +8,29 @@ export default function Navbar() {
 
   return (
     <nav className={styles.navbar}>
-      <Link to="/" className="logo">
-        Mi Blog
+      <Link to="/" className={styles.logo}>
+        BLOG
       </Link>
       <div className={styles.navLinks}>
         {user ? (
           <>
             <span className={styles.userGreeting}>Hola, {user.username}</span>
             {user.role == "admin" ? (
-              <Link to="/admin">Centro de control</Link>
+              <Link to="/admin" className={styles.link}>
+                Centro de control
+              </Link>
             ) : null}
             <button onClick={logout} className={styles.logoutButton}>
-              Logout
+              Cerrar sesión
             </button>
           </>
         ) : (
           <>
             <Link to="/login" className={styles.link}>
-              Login
+              Iniciar Sesión
             </Link>
             <Link to="/signup" className={styles.link}>
-              Sign Up
+              Registrase
             </Link>
           </>
         )}

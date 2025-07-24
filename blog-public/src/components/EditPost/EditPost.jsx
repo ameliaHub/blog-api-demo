@@ -2,6 +2,8 @@
 import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
+import styles from "./EditPost.module.css";
+
 export default function EditPost() {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -43,27 +45,32 @@ export default function EditPost() {
   };
 
   return (
-    <div>
-      <h2>Editar Post</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Título:</label>
+    <div className={styles.container}>
+      <h2 className={styles.title}>Editar Post</h2>
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <div className={styles.inputGroup}>
+          <label className={styles.inputLabel}>Título:</label>
           <input
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
+            className={styles.inputField}
           />
         </div>
-        <div>
-          <label>Contenido:</label>
+        <div className={styles.inputGroup}>
+          <label className={styles.inputLabel}>Contenido:</label>
           <textarea
             value={content}
             onChange={(e) => setContent(e.target.value)}
             required
+            className={styles.textareaField}
+            rows={8}
           />
         </div>
-        <button type="submit">Guardar cambios</button>
+        <button type="submit" className={styles.submitButton}>
+          Guardar cambios
+        </button>
       </form>
     </div>
   );
