@@ -57,7 +57,7 @@ npm run dev
 
 ## Uso
 
-- Accede al frontend en \http://localhost:3000\ (o el puerto que indique Vite).  
+- Accede al frontend en http://localhost:3000\ (o el puerto que indique Vite).  
 - Regístrate o inicia sesión para poder gestionar posts.  
 - Puedes crear, editar, eliminar y visualizar los posts.
 
