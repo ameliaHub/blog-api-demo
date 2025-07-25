@@ -12,6 +12,7 @@ exports.createPost = async (req, res) => {
       "INSERT INTO posts (title, content, author_id, image, created_at) VALUES ($1, $2, $3, $4, NOW())",
       [title, content, authorId, image]
     );
+    res.status(201).json({ message: "Post creado correctamente" });
     // res.redirect("/admin");
   } catch (err) {
     console.error("Error creating post:", err);
@@ -57,6 +58,7 @@ exports.updatePost = async (req, res) => {
       [title, content, image, postId]
     );
     // res.redirect("/admin");
+    res.status(200).json({ message: "Post actualizado correctamente" });
   } catch (err) {
     console.error("Error updating post:", err);
     res.status(500).json({ message: "Server error" });
@@ -69,6 +71,7 @@ exports.deletePost = async (req, res) => {
   try {
     await pool.query("DELETE FROM posts WHERE id = $1", [postId]);
     // res.redirect("/admin");
+    res.status(200).json({ message: "Post eliminado correctamente" });
   } catch (err) {
     console.error("Error deleting post:", err);
     res.status(500).json({ message: "Server error" });
