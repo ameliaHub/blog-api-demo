@@ -1,7 +1,7 @@
-# Blog Fullstack
+# BLOG
 
-Este es un proyecto fullstack de un blog que permite a los usuarios registrarse, iniciar sesión y gestionar posts (crear, editar, eliminar y visualizar).  
-La API está construida con Node.js y Express, el frontend con React.js, y la base de datos es PostgreSQL. La autenticación se maneja mediante Passport.js.
+El proyecto permite el visualizado de publicaciones y comentarios para usuarios no registrados y la creación de los mismos por usuarios autorizados. Quedándo restringida la creación de publicaciones para usuarios con rol de admin que cuentan con un propio panel de administración desde el que pueden crear, editar, visualizar y eliminar las publicaciones.  
+
 
 ---
 
@@ -10,7 +10,7 @@ La API está construida con Node.js y Express, el frontend con React.js, y la ba
 - Backend: Node.js, Express.js  
 - Frontend: React.js  
 - Base de datos: PostgreSQL  
-- Autenticación: Passport.js  
+- Autenticación y rutas protegidas: Passport.js  
 
 ---
 
@@ -25,7 +25,7 @@ git clone https://github.com/tu_usuario/tu_repositorio.git
 ### Backend
 
 ```bash
-cd backend
+cd blog-api
 npm install
 ```
 
@@ -40,7 +40,7 @@ PORT=4000
 Inicia el servidor backend:
 
 ```bash
-npm run dev
+node app.js
 ```
 
 ### Frontend
@@ -48,7 +48,7 @@ npm run dev
 En otra terminal:
 
 ```bash
-cd frontend
+cd blog-public
 npm install
 npm run dev
 ```
@@ -68,25 +68,6 @@ npm run dev
 - Registro e inicio de sesión con autenticación segura usando Passport.js.  
 - CRUD completo de posts.  
 - Interfaz sencilla e intuitiva con React.js.
-
----
-
-## Estructura del proyecto (opcional)
-
-```
-/backend
-  ├── controllers
-  ├── models
-  ├── routes
-  ├── app.js
-  └── ...
-/frontend
-  ├── src
-  │   ├── components
-  │   ├── pages
-  │   └── App.jsx
-  └── ...
-```
 
 ---
 
