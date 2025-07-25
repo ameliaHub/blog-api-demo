@@ -6,7 +6,7 @@ export default function PostList() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/preview/posts", {
+    fetch("https://blog-api-demo-r8ot.onrender.com/preview/posts", {
       credentials: "include",
     })
       .then((res) => res.json())

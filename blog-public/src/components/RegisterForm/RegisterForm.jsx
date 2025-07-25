@@ -23,11 +23,15 @@ export default function Signup() {
       return;
     }
     try {
-      const res = await fetch("http://localhost:3000/auth/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      const res = await fetch(
+        "https://blog-api-demo-r8ot.onrender.com/auth/register",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+          credentials: "include", // para enviar cookies
+        }
+      );
 
       const data = await res.json();
 

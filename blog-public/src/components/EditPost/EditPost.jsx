@@ -14,7 +14,9 @@ export default function EditPost() {
 
   // Cargar los datos del post al montar
   useEffect(() => {
-    fetch(`http://localhost:3000/posts/${id}`)
+    fetch(`https://blog-api-demo-r8ot.onrender.com/posts/${id}`, {
+      credentials: "include",
+    })
       .then((res) => res.json())
       .then((data) => {
         setTitle(data.post.title);
@@ -27,7 +29,7 @@ export default function EditPost() {
   // Enviar cambios
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch(`http://localhost:3000/admin/posts/${id}`, {
+    fetch(`https://blog-api-demo-r8ot.onrender.com/admin/posts/${id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

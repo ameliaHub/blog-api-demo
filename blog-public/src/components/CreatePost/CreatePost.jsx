@@ -12,18 +12,30 @@ export default function CreatePost() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:3000/admin/posts", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify({ title, content, image }),
-      });
+      const res = await fetch(
+        "https://blog-api-demo-r8ot.onrender.com/admin/posts",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify({ title, content, image }),
+        }
+      );
 
       if (!res.ok) {
-        const errorData = await res.json();
-        throw new Error(errorData.message || "Error al crear el post");
+        const contentType = res.headers.get("content-type");
+        let errorMessage = "Error al crear el post";
+
+        if (contentType && contentType.includes("application/json")) {
+          const errorData = await res.json();
+          errorMessage = errorData.message || errorMessage;
+        } else {
+          errorMessage = await res.text(); // captura texto plano (como "No tienes permisos...")
+        }
+
+        throw new Error(errorMessage);
       }
 
       alert("Post creado correctamente");

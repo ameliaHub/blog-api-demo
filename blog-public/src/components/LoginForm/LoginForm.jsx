@@ -24,12 +24,15 @@ export default function LoginForm() {
       return;
     }
     try {
-      const res = await fetch("http://localhost:3000/auth/login", {
-        method: "POST",
-        credentials: "include",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+      const res = await fetch(
+        "https://blog-api-demo-r8ot.onrender.com/auth/login",
+        {
+          method: "POST",
+          credentials: "include",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData),
+        }
+      );
 
       let data;
       try {

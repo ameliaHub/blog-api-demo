@@ -10,9 +10,12 @@ const ManagePost = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await fetch("http://localhost:3000/preview/posts", {
-          credentials: "include",
-        });
+        const res = await fetch(
+          "https://blog-api-demo-r8ot.onrender.com/preview/posts",
+          {
+            credentials: "include",
+          }
+        );
         const data = await res.json();
         setPosts(data);
       } catch (err) {
@@ -28,7 +31,7 @@ const ManagePost = () => {
 
     try {
       const res = await fetch(
-        `http://localhost:3000/admin/posts/${id}/delete`,
+        `https://blog-api-demo-r8ot.onrender.com/admin/posts/${id}/delete`,
         {
           method: "POST",
           credentials: "include",

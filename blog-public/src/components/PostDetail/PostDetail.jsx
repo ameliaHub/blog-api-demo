@@ -13,7 +13,7 @@ export default function PostDetail() {
   const [newComment, setNewComment] = useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:3000/posts/${id}`, {
+    fetch(`https://blog-api-demo-r8ot.onrender.com/posts/${id}`, {
       credentials: "include",
     })
       .then((res) => res.json())
@@ -26,7 +26,7 @@ export default function PostDetail() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch(`http://localhost:3000/posts/${id}/comments`, {
+    fetch(`https://blog-api-demo-r8ot.onrender.com/posts/${id}/comments`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       credentials: "include", // para que mande cookies

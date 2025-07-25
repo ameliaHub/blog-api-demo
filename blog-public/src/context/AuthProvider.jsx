@@ -8,9 +8,12 @@ export function AuthProvider({ children }) {
   useEffect(() => {
     const fetchCurrentUser = async () => {
       try {
-        const res = await fetch("http://localhost:3000/auth/current-user", {
-          credentials: "include",
-        });
+        const res = await fetch(
+          "https://blog-api-demo-r8ot.onrender.com/auth/current-user",
+          {
+            credentials: "include",
+          }
+        );
         if (!res.ok) throw new Error();
         const data = await res.json();
         setUser(data.user);
@@ -24,7 +27,7 @@ export function AuthProvider({ children }) {
 
   const logout = async () => {
     try {
-      await fetch("http://localhost:3000/auth/logout", {
+      await fetch("https://blog-api-demo-r8ot.onrender.com/auth/logout", {
         method: "POST",
         credentials: "include",
       });
