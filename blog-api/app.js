@@ -22,9 +22,13 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(
   session({
-    secret: "tu_secreto_super_seguro",
+    secret: "tu_secreto",
     resave: false,
     saveUninitialized: false,
+    cookie: {
+      secure: false,
+      sameSite: "lax",
+    },
   })
 );
 
