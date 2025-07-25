@@ -24,7 +24,7 @@ export default function CreatePost() {
         }
       );
 
-      if (!res.ok) {
+      if (res.status !== 200 && res.status !== 201) {
         const contentType = res.headers.get("content-type");
         let errorMessage = "Error al crear el post";
 
