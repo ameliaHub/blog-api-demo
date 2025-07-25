@@ -34,7 +34,7 @@ Configura las variables de entorno (ejemplo):
 ```env
 DATABASE_URL=tu_conexion_postgresql
 SESSION_SECRET=una_clave_secreta_para_sesiones
-PORT=4000
+PORT=3000
 ```
 
 Inicia el servidor backend:
@@ -57,7 +57,7 @@ npm run dev
 
 ## Uso
 
-- Accede al frontend en \`http://localhost:3000\` (o el puerto que indique Vite).  
+- Accede al frontend en \http://localhost:3000\ (o el puerto que indique Vite).  
 - Regístrate o inicia sesión para poder gestionar posts.  
 - Puedes crear, editar, eliminar y visualizar los posts.
 
