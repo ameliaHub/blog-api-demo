@@ -18,40 +18,40 @@ La API está construida con Node.js y Express, el frontend con React.js, y la ba
 
 Clona el repositorio:
 
-\`\`\`bash
+```bash
 git clone https://github.com/tu_usuario/tu_repositorio.git
-\`\`\`
+```
 
 ### Backend
 
-\`\`\`bash
+```bash
 cd backend
 npm install
-\`\`\`
+```
 
 Configura las variables de entorno (ejemplo):
 
-\`\`\`env
+```env
 DATABASE_URL=tu_conexion_postgresql
 SESSION_SECRET=una_clave_secreta_para_sesiones
 PORT=4000
-\`\`\`
+```
 
 Inicia el servidor backend:
 
-\`\`\`bash
+```bash
 npm run dev
-\`\`\`
+```
 
 ### Frontend
 
 En otra terminal:
 
-\`\`\`bash
+```bash
 cd frontend
 npm install
 npm run dev
-\`\`\`
+```
 
 ---
 
@@ -73,7 +73,7 @@ npm run dev
 
 ## Estructura del proyecto (opcional)
 
-\`\`\`
+```
 /backend
   ├── controllers
   ├── models
@@ -86,7 +86,7 @@ npm run dev
   │   ├── pages
   │   └── App.jsx
   └── ...
-\`\`\`
+```
 
 ---
 
