@@ -10,7 +10,7 @@ const cors = require("cors");
 
 app.use(
   cors({
-    origin: "http://localhost:5173", // origen del frontend de Vite
+    origin: "https://blog-api-demo-lac.vercel.app/", // origen del frontend de Vite
     credentials: true,
   })
 );
