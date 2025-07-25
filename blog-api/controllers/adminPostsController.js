@@ -1,7 +1,7 @@
 const pool = require("../db/pool");
 
 exports.renderNewPostForm = (req, res) => {
-  res.render("postForm", { post: null });
+  // res.render("postForm", { post: null });
 };
 
 exports.createPost = async (req, res) => {
@@ -15,7 +15,7 @@ exports.createPost = async (req, res) => {
     res.redirect("/admin");
   } catch (err) {
     console.error("Error creating post:", err);
-    res.status(500).send("Server error");
+    res.status(500).json({ message: "Server error" });
   }
 };
 
@@ -24,10 +24,10 @@ exports.renderAdminPosts = async (req, res) => {
     const result = await pool.query(
       "SELECT * FROM posts ORDER BY created_at DESC"
     );
-    res.render("adminPosts", { posts: result.rows });
+    // res.render("adminPosts", { posts: result.rows });
   } catch (err) {
     console.error("Error fetching posts:", err);
-    res.status(500).send("Server error");
+    res.status(500).json({ message: "Server error" });
   }
 };
 
@@ -44,7 +44,7 @@ exports.renderEditPostForm = async (req, res) => {
     res.render("postForm", { post: result.rows[0] });
   } catch (err) {
     console.error("Error fetching post:", err);
-    res.status(500).send("Server error");
+    res.status(500).json({ message: "Server error" });
   }
 };
 
@@ -59,7 +59,7 @@ exports.updatePost = async (req, res) => {
     res.redirect("/admin");
   } catch (err) {
     console.error("Error updating post:", err);
-    res.status(500).send("Server error");
+    res.status(500).json({ message: "Server error" });
   }
 };
 
@@ -71,6 +71,6 @@ exports.deletePost = async (req, res) => {
     res.redirect("/admin");
   } catch (err) {
     console.error("Error deleting post:", err);
-    res.status(500).send("Server error");
+    res.status(500).json({ message: "Server error" });
   }
 };
