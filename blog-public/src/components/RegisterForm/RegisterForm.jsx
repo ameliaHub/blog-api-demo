@@ -36,7 +36,7 @@ export default function Signup() {
       const data = await res.json();
 
       if (res.ok) {
-        alert("Usuario creado con éxito");
+        //alert("Usuario creado con éxito");
         navigate("/login");
       } else {
         setErrorMsg(data.message || "Error en el registro");

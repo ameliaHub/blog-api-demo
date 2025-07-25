@@ -42,7 +42,7 @@ export default function LoginForm() {
       }
 
       if (res.ok) {
-        alert("Inicio de sesión exitoso");
+        //alert("Inicio de sesión exitoso");
         setUser(data.user);
         navigate("/");
       } else {

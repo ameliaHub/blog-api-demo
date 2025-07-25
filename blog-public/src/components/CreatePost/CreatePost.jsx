@@ -38,11 +38,11 @@ export default function CreatePost() {
         throw new Error(errorMessage);
       }
 
-      alert("Post creado correctamente");
+      //alert("Post creado correctamente");
       navigate("/admin/manage"); // Redirige después de crear
     } catch (error) {
       console.error("Error al crear el post:", error);
-      alert("Error al crear el post");
+      //alert("Error al crear el post");
     }
   };
 

@@ -39,7 +39,7 @@ export default function EditPost() {
     })
       .then((res) => {
         if (res.ok) {
-          alert("Post actualizado correctamente");
+          //alert("Post actualizado correctamente");
           navigate("/admin/manage");
         } else {
           throw new Error("Error al actualizar");
